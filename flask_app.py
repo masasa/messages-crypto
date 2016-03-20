@@ -75,11 +75,12 @@ def decrypt_user_msg(key, msg):
 
 @app.route("/")
 def root():
-    return app.send_static_file('index.html')
+    # return app.send_static_file('index.html')
+    return render_template('index.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return app.send_static_file('404.html')
+    return render_template('404.html')
 
 @app.route('/code', methods=['POST', 'GET'])
 def code():

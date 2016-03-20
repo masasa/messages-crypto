@@ -1,6 +1,6 @@
 {
   "name": "Messages Encryption & Decryption Platform",
   "tagline": "Messaging encryption & decryption Utility  (Python, HTML, JS & CSS)",
-  "body": "I've created this project while I was reading a book called \"The Code Book\" by Simon Singh.\r\nWhile I was reading the book I've passed through all kinds of encryption methods from ancient times to our days, one encryption caught my mind in it's simplicity and it's strength, it's called \"Vigenère cipher\" by Vigenère.\r\n\r\nSo I decided to write an encryption web app based on this encryption.\r\nHope you enjoy using it, use it wisely ;)",
+  "body": "I've created this project while I was reading a book called \"The Code Book\" by Simon Singh.\r\nWhile I was reading the book I've passed through all kinds of encryption methods from ancient times to our days, one encryption caught my mind in it's simplicity and it's strength, it's called \"Vigenère cipher\" by Vigenère.\r\n\r\nSo I decided to write an encryption web app based on this encryption.\r\n\r\n**Hope you enjoy using it!**",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }

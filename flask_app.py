@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 
-# ------------------------------------------------ #
 cipher_table = []
 base = 32
 
@@ -60,9 +59,7 @@ def decrypt_msg(key, msg):
 
     return decrypted_msg
 
-# ------------------------------------------------ #
 
-# app = Flask(__name__)
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 
@@ -94,7 +91,6 @@ def code():
         msg = request.form['msg']
 
         # assuming the input validation preformed on the HTML page
-
         if act == '0':
             return encrypt_user_msg(key, msg)
         else:

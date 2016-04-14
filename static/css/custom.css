@@ -1,3 +1,13 @@
+
+h1{
+	font-size: 34px;
+}
+
+.copyright{
+	padding: 20px 0px 0px 0px;
+	font-size:14px;
+}
+
 /* used for mobile and tablets */
 @media only screen and (max-width : 749px) {
 	/* continuing the color of the container all the way down */

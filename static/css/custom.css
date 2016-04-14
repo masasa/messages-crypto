@@ -1,18 +1,26 @@
-/* Medium devices (desktops, 992px and up) */
-/*@media (min-width: @screen-md-min) { */
-
-	.container {
-	    top: 50%;
-		left: 50%;
-		width:30em;
-		height:18em;
-		margin-top: -9em; /*set to a negative number 1/2 of your height*/
-		margin-left: -15em; /*set to a negative number 1/2 of your width*/
-		border: 1px solid #ccc;
-		background-color: #f3f3f3;
-		position:fixed;
+/* used for mobile and tablets */
+@media only screen and (max-width : 749px) {
+	/* continuing the color of the container all the way down */
+	body{
+		background-color: #ecf0f1;
 	}
-/*}*/
-/* Large devices (large desktops, 1200px and up) */
-/*@media (min-width: @screen-lg-min) { ... }*/
+}
 
+/* design spesific for computers */
+@media only screen and (min-width : 750px) {
+
+	/* backround image */
+	body{
+	  	background-image: url("../images/background.jpg");
+	}
+	
+	/* the screen floats in the middle of the screen */
+  	.container {
+	  position: fixed;
+	  width: 75%;
+	  top: 50%;
+	  left: 50%;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	}
+}

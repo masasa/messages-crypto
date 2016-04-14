@@ -10,6 +10,11 @@ h1{
 	font-size:14px;
 }
 
+/* some padding to the window */
+.form-horizontal{
+	padding: 4px 12px;
+}
+
 /* used for mobile and tablets */
 @media only screen and (max-width : 749px) {
 	/* continuing the color of the container all the way down */
@@ -25,9 +30,15 @@ h1{
 	body{
 	  	background-image: url("../images/background.jpg");
 	}
-	
+
+	/* different padding for computer screens */
+	.form-horizontal{
+		padding: 10px 25px;
+	}
+
 	/* the screen floats in the middle of the screen */
   	.container {
+  	  padding-right: 20px;
 	  position: fixed;
 	  width: 680px;
 	  top: 50%;

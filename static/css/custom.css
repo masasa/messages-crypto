@@ -5,6 +5,7 @@ h1{
 }
 
 .copyright{
+	align-self: left;
 	padding: 20px 0px 0px 0px;
 	font-size:14px;
 }

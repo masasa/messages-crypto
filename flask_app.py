@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 # some connfigurations
 cipher_table = []
-base = 10
+base = 0
 tblSize = 127 - base;
 
 # creating the cipher table

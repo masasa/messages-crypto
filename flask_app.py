@@ -16,6 +16,10 @@ for index in range(0, tblSize):
     cipher_table.append(curr_list)
 
 
+#fix spaces
+def fix_spaces(msg):
+    return msg.replace('\n', '\r\n')
+
 # encrypting the message by key
 def encrypt_msg(key, msg):
     msg_list = list(msg)
@@ -36,7 +40,7 @@ def encrypt_msg(key, msg):
 
         # adding the encrypted char to the message
         encrypted_msg += cipher_table[alphabet][char]
-
+        
     return encrypted_msg
 
 
@@ -58,9 +62,11 @@ def decrypt_msg(key, msg):
 
         # decrypting the char to the original message
         decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
-
+    
+    # fixing spaces
+    fix_spaces(decrypted_msg)
+    
     return decrypted_msg
-
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 

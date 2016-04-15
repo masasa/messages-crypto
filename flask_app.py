@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request
 
+# some connfigurations
 cipher_table = []
-base = 32
+base = 10
+tblSize = 127 - base;
 
 # creating the cipher table
-for index in range(0, 95):
-    curr_list = range(index, index + 95)
+for index in range(0, tblSize):
+    curr_list = range(index, index + tblSize)
 
     # fixing the list
-    curr_list = map(lambda x: chr(base + (x % 95)), curr_list)
+    curr_list = map(lambda x: chr(base + (x % tblSize)), curr_list)
 
     # adding the new list to the table
     cipher_table.append(curr_list)

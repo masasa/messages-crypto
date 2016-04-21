@@ -6,29 +6,7 @@
 	<meta name="viewport" content="width=device-width, intitial-scale=1.0">
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/custom.css') }}">
-
-	<script type="text/javascript">
-		function changeSubmitButtonText(){
-			var e = document.getElementById("submit_button");
-    		if (e.value=="Encrypt Message") e.value = "Decrypt Message";
-    		else e.value = "Encrypt Message";
-		}
-
-		function validateForm() {
-			var key = document.forms["code_form"]["key"].value;
-			var msg = document.forms["code_form"]["msg"].value;
-
-			if (key == null || key == "") {
-				alert("Key box must be filled out!");
-				return false;
-			}
-
-			if (msg == null || msg == "") {
-				alert("Message box must be filled out!");
-				return false;
-			}
-		}
-	</script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
 </head>
 <body>
 
@@ -51,12 +29,14 @@
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="key" id="key" placeholder="Enter your Key Word / Phrase">
 				</div>
+				<p id="key_err" style="font-size:13px;" class="text-danger"></p>
 			</div>
 
 			<div class="row form-group">
 				<div class="col-sm-2 control-label"><label for="select">Your Message</label></div>
 				<div class="col-sm-10">
 					<textarea class="form-control" rows="4" name="msg" id="msg" placeholder="Enter your Message"></textarea>
+					<p id="msg_err" style="font-size:13px;" class="text-danger"></p>
 					<div class="help-block">Please make sure you remember the key word / phrase, without it it's not possible to decrypt the encrypted text to the original message.</div>
 				</div>
 			</div>

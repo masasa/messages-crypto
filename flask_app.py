@@ -2,11 +2,11 @@ from flask import Flask, render_template, request
 
 # some connfigurations
 cipher_table = []
-base = 0
-tblSize = 127 - base;
+base = 32
+tblSize = 128 - base;
 
 # creating the cipher table
-for index in range(0, tblSize):
+for index in range(tblSize):
     curr_list = range(index, index + tblSize)
 
     # fixing the list
@@ -16,7 +16,7 @@ for index in range(0, tblSize):
     cipher_table.append(curr_list)
 
 
-#fix spaces
+# fix spaces
 def fix_spaces(msg):
     return msg.replace('\n', '\r\n')
 
@@ -67,7 +67,6 @@ def decrypt_msg(key, msg):
     fix_spaces(decrypted_msg)
     
     return decrypted_msg
-
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 

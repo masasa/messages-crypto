@@ -23,7 +23,7 @@ function validateForm() {
 		errKey = "Key box can't be empty."
 		inputOk = false;
 	}else if(!isASCII(key)){
-		errKey = "Key box must contains only english letters, number and symbols."
+		errKey = "Key box must contains only english letters, numbers and symbols."
 		inputOk = false;
 	}
 
@@ -32,7 +32,7 @@ function validateForm() {
 		errMsg = "Message box can't be empty."
 		inputOk = false;
 	}else if(!isASCII(msg)){
-		errMsg = "Message box must contains only english letters, number and symbols."
+		errMsg = "Message box must contains only english letters, numbers and symbols."
 		inputOk = false;
 	}
 

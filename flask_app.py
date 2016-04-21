@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 # some connfigurations
 cipher_table = []
-base = 10
+base = 32
 tblSize = 128 - base;
 
 # creating the cipher table
@@ -16,10 +16,6 @@ for index in range(tblSize):
     cipher_table.append(curr_list)
 
 
-# fix spaces
-def fix_spaces(msg):
-    return msg.replace('\n', '\r\n')
-
 # encrypting the message by key
 def encrypt_msg(key, msg):
     msg_list = list(msg)
@@ -31,15 +27,22 @@ def encrypt_msg(key, msg):
 
     # encrypting the message
     for loc in range(len(msg_list)):
-        curr_char = msg_list[loc]
 
-        char = ord(curr_char) - base
+        # ignoring new lines
+        if(msg_list[loc] == '\n'):
+            encrypted_msg += '\n'
+        else:
+            # current character in message
+            curr_char = msg_list[loc]
+            
+            # finding the location of the fitting encrpyed character in alphbet line
+            char = ord(curr_char) - base
 
-        # the alphabet to encrypt based on the key current char
-        alphabet = key_chars[loc % len(key_chars)]
+            # the alphabet to encrypt based on the key current char
+            alphabet = key_chars[loc % len(key_chars)]
 
-        # adding the encrypted char to the message
-        encrypted_msg += cipher_table[alphabet][char]
+            # adding the encrypted char to the message
+            encrypted_msg += cipher_table[alphabet][char]
         
     return encrypted_msg
 
@@ -55,20 +58,23 @@ def decrypt_msg(key, msg):
 
     # encrypting the message
     for loc in range(len(msg_list)):
-        curr_char = msg_list[loc]
+        
+        if(msg_list[loc] == '\n'):
+            decrypted_msg += '\n'
+        else:
+            # the current character to decrypt
+            curr_char = msg_list[loc]
 
-        # the alphabet to encrypt based on the key current char
-        alphabet = key_chars[loc % len(key_chars)]
+            # the alphabet to encrypt based on the key current char
+            alphabet = key_chars[loc % len(key_chars)]
 
-        # decrypting the char to the original message
-        decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
-    
-    # fixing spaces
-    fix_spaces(decrypted_msg)
+            # decrypting the char to the original message
+            decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
     
     return decrypted_msg
-app = Flask(__name__, static_folder='static', static_url_path='/static')
 
+
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 def encrypt_user_msg(key, msg):
     ans = encrypt_msg(key, msg)

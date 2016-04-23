@@ -76,11 +76,12 @@ def decrypt_msg(key, msg):
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
+# handle the encryption request
 def encrypt_user_msg(key, msg):
     ans = encrypt_msg(key, msg)
     return render_template('msg_encrypted.html', key=key, org_msg=msg, enc_msg=ans)
 
-
+# handle the decryption request
 def decrypt_user_msg(key, msg):
     ans = decrypt_msg(key, msg)
     return render_template('msg_decrypted.html', key=key, org_msg=msg, dec_msg=ans)
@@ -103,6 +104,10 @@ def code():
         act = request.form['act']
         key = request.form['key']
         msg = request.form['msg']
+
+        #converting both key & message to ASCII
+        key = key.encode('ascii', 'ignore')
+        msg = msg.encode('ascii', 'ignore')
 
         # assuming the input validation preformed on the HTML page
         if act == '0':

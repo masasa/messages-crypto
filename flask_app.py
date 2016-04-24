@@ -16,17 +16,13 @@ for index in range(tblSize):
     cipher_table.append(curr_list)
 
 # adujust newline issuse in python and web difference
-def newlineAdjuster(key, msg, source):
-    if(source == 'web'):
-        # \r\n to \n
-        key.replace(r"\r\n", r"\n")
-        msg.replace(r"\r\n", r"\n")
-    else:
-        # \n to \r\n
-        key.replace(r"\n", r"\r\n")
-        msg.replace(r"\n", r"\r\n")
+def newlineAdjuster(key, msg):
+    # \r\n to \n
+    key.replace(r"\r\n", r"\n")
+    msg.replace(r"\r\n", r"\n")
 
     return (key, msg)
+
 
 # encrypting the message by key
 def encrypt_msg(key, msg):
@@ -35,7 +31,7 @@ def encrypt_msg(key, msg):
     msg_list = list(msg)
 
     # fixing newline issues
-    (key, msg) = newlineAdjuster(key, msg, 'web')
+    (key, msg) = newlineAdjuster(key, msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -72,7 +68,7 @@ def decrypt_msg(key, msg):
     msg_list = list(msg)
 
     # fixing newline issues
-    (key, msg) = newlineAdjuster(key, msg, 'web')
+    (key, msg) = newlineAdjuster(key, msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -93,7 +89,7 @@ def decrypt_msg(key, msg):
             decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
     
     # adujsting decrypted text to web display
-    #decrypted_msg.replace(r"\n", r"\r\n")
+    decrypted_msg.replace(r"\n", r"\r\n")
 
     return decrypted_msg
 

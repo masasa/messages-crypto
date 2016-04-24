@@ -51,7 +51,7 @@ def encrypt_msg(key, msg):
             encrypted_msg += cipher_table[alphabet][char]
         
     # adujsting encrypted text to web display
-    return encrypted_msg.replace(r"\n", r"\r\n")
+    return repr(encrypted_msg.replace('\n', '\r\n'))
 
 
 # decrypting the message by key
@@ -85,7 +85,7 @@ def decrypt_msg(key, msg):
             decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
     
     # adujsting decrypted text to web display
-    return decrypted_msg.replace(r"\n", r"\r\n")
+    return repr(decrypted_msg.replace('\n', '\r\n'))
 
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')

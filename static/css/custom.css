@@ -15,6 +15,10 @@ h1{
 	padding: 4px 12px;
 }
 
+.note{
+	font-size:13px;
+}
+
 /* used for mobile and tablets */
 @media only screen and (max-width : 749px) {
 	/* continuing the color of the container all the way down */

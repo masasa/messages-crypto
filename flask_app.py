@@ -101,8 +101,7 @@ def encrypt_user_msg(key, msg):
 
 # handle the decryption request
 def decrypt_user_msg(key, msg):
-    #ans = decrypt_msg(key, msg)
-    ans = ""
+    ans = decrypt_msg(key, msg)
     return render_template('msg_decrypted.html', key=key, org_msg=msg, dec_msg=ans)
 
 

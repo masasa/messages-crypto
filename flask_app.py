@@ -16,13 +16,9 @@ for index in range(tblSize):
     cipher_table.append(curr_list)
 
 # adujust newline issuse in python and web difference
-def newlineAdjuster(key, msg):
+def newlineAdjuster(str):
     # \r\n to \n
-    key.replace(r"\r\n", r"\n")
-    msg.replace(r"\r\n", r"\n")
-
-    return (key, msg)
-
+    return str.replace(r"\r\n", r"\n")
 
 # encrypting the message by key
 def encrypt_msg(key, msg):
@@ -31,7 +27,8 @@ def encrypt_msg(key, msg):
     msg_list = list(msg)
 
     # fixing newline issues
-    (key, msg) = newlineAdjuster(key, msg)
+    key = newlineAdjuster(key)
+    msg = newlineAdjuster(msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -68,7 +65,8 @@ def decrypt_msg(key, msg):
     msg_list = list(msg)
 
     # fixing newline issues
-    (key, msg) = newlineAdjuster(key, msg)
+    key = newlineAdjuster(key)
+    msg = newlineAdjuster(msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -103,7 +101,8 @@ def encrypt_user_msg(key, msg):
 
 # handle the decryption request
 def decrypt_user_msg(key, msg):
-    ans = decrypt_msg(key, msg)
+    #ans = decrypt_msg(key, msg)
+    ans = ""
     return render_template('msg_decrypted.html', key=key, org_msg=msg, dec_msg=ans)
 
 
@@ -119,7 +118,7 @@ def page_not_found(error):
 @app.route('/code', methods=['POST', 'GET'])
 def code():
     error = None
-    if request.method == 'POST':
+    if (request.method == 'POST'):
         # 0 - encrypt | 1 - decrypt
         act = request.form['act']
 

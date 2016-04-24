@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import re
 
 # some connfigurations
 cipher_table = []
@@ -21,11 +20,13 @@ for index in range(tblSize):
 def encrypt_msg(key, msg):
     
     encrypted_msg = ""
-    msg_list = list(msg)
 
     # fixing newline issues
     key = key.replace('\r\n', '\n')
     msg = msg.replace('\r\n', '\n')
+
+    # converting msg to list
+    msg_list = list(msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -57,13 +58,13 @@ def encrypt_msg(key, msg):
 def decrypt_msg(key, msg):
     
     decrypted_msg = ""
-    msg_list = list(msg)
 
     # fixing newline issues
     key = key.replace('\r\n', '\n')
     msg = msg.replace('\r\n', '\n')
 
-    return repr(msg)
+    # converting msg to list
+    msg_list = list(msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))

@@ -64,6 +64,8 @@ def decrypt_msg(key, msg):
     decrypted_msg = ""
     msg_list = list(msg)
 
+    return "bloop"
+
     # fixing newline issues
     key = newlineAdjuster(key)
     msg = newlineAdjuster(msg)

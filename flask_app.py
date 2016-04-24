@@ -64,11 +64,11 @@ def decrypt_msg(key, msg):
     decrypted_msg = ""
     msg_list = list(msg)
 
-    return "bloop"
-
     # fixing newline issues
     key = newlineAdjuster(key)
     msg = newlineAdjuster(msg)
+
+    return "bloop"
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))

@@ -93,7 +93,7 @@ def decrypt_msg(key, msg):
             decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
     
     # adujsting decrypted text to web display
-    decrypted_msg.replace(r"\n", r"\r\n")
+    #decrypted_msg.replace(r"\n", r"\r\n")
 
     return decrypted_msg
 

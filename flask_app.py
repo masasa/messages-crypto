@@ -15,12 +15,27 @@ for index in range(tblSize):
     # adding the new list to the table
     cipher_table.append(curr_list)
 
+# adujust newline issuse in python and web difference
+def newlineAdjuster(key, msg, source):
+    if(source = 'web'):
+        # \r\n to \n
+        key.replace(r"\r\n", r"\n")
+        msg.replace(r"\r\n", r"\n")
+    else:
+        # \n to \r\n
+        key.replace(r"\n", r"\r\n")
+        msg.replace(r"\n", r"\r\n")
+
+    return (key, msg)
 
 # encrypting the message by key
 def encrypt_msg(key, msg):
+    
+    encrypted_msg = ""
     msg_list = list(msg)
 
-    encrypted_msg = ""
+    # fixing newline issues
+    (key, msg) = newlineAdjuster(key, msg, 'web')
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -44,14 +59,20 @@ def encrypt_msg(key, msg):
             # adding the encrypted char to the message
             encrypted_msg += cipher_table[alphabet][char]
         
+    # adujsting encrypted text to web display
+    encrypted_msg.replace(r"\n", r"\r\n")
+
     return encrypted_msg
 
 
 # decrypting the message by key
 def decrypt_msg(key, msg):
+    
+    decrypted_msg = ""
     msg_list = list(msg)
 
-    decrypted_msg = ""
+    # fixing newline issues
+    (key, msg) = newlineAdjuster(key, msg, 'web')
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -71,6 +92,9 @@ def decrypt_msg(key, msg):
             # decrypting the char to the original message
             decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
     
+    # adujsting decrypted text to web display
+    decrypted_msg.replace(r"\n", r"\r\n")
+
     return decrypted_msg
 
 
@@ -102,13 +126,11 @@ def code():
     if request.method == 'POST':
         # 0 - encrypt | 1 - decrypt
         act = request.form['act']
-        key = request.form['key']
-        msg = request.form['msg']
 
-        #converting both key & message to ASCII
-        key = key.encode('ascii', 'ignore')
-        msg = msg.encode('ascii', 'ignore')
-
+        # converting both key & message to ASCII
+        key = request.form['key'].encode('ascii', 'ignore')
+        msg = request.form['msg'].encode('ascii', 'ignore')
+    
         # assuming the input validation preformed on the HTML page
         if act == '0':
             return encrypt_user_msg(key, msg)

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import re
 
 # some connfigurations
 cipher_table = []
@@ -15,10 +16,6 @@ for index in range(tblSize):
     # adding the new list to the table
     cipher_table.append(curr_list)
 
-# adujust newline issuse in python and web difference
-def newlineAdjuster(str):
-    # \r\n to \n
-    return str.replace(r"\r\n", r"\n")
 
 # encrypting the message by key
 def encrypt_msg(key, msg):
@@ -27,8 +24,8 @@ def encrypt_msg(key, msg):
     msg_list = list(msg)
 
     # fixing newline issues
-    key = newlineAdjuster(key)
-    msg = newlineAdjuster(msg)
+    key = key.replace('\r\n', '\n')
+    msg = msg.replace('\r\n', '\n')
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
@@ -53,9 +50,7 @@ def encrypt_msg(key, msg):
             encrypted_msg += cipher_table[alphabet][char]
         
     # adujsting encrypted text to web display
-    encrypted_msg.replace(r"\n", r"\r\n")
-
-    return encrypted_msg
+    return encrypted_msg.replace(r"\n", r"\r\n")
 
 
 # decrypting the message by key
@@ -65,15 +60,15 @@ def decrypt_msg(key, msg):
     msg_list = list(msg)
 
     # fixing newline issues
-    key = newlineAdjuster(key)
-    msg = newlineAdjuster(msg)
+    key = key.replace('\r\n', '\n')
+    msg = msg.replace('\r\n', '\n')
 
-    return "bloop"
+    return repr(msg)
 
     # creating a list of locations for each key's letter alphabet
     key_chars = map(lambda x: ord(x) - base, list(key))
 
-    # encrypting the message
+    # decrypting the message
     for loc in range(len(msg_list)):
         
         if(msg_list[loc] == '\n'):
@@ -89,9 +84,7 @@ def decrypt_msg(key, msg):
             decrypted_msg += chr(base + cipher_table[alphabet].index(curr_char))
     
     # adujsting decrypted text to web display
-    decrypted_msg.replace(r"\n", r"\r\n")
-
-    return decrypted_msg
+    return decrypted_msg.replace(r"\n", r"\r\n")
 
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')

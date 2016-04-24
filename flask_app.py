@@ -17,7 +17,7 @@ for index in range(tblSize):
 
 # adujust newline issuse in python and web difference
 def newlineAdjuster(key, msg, source):
-    if(source = 'web'):
+    if(source == 'web'):
         # \r\n to \n
         key.replace(r"\r\n", r"\n")
         msg.replace(r"\r\n", r"\n")

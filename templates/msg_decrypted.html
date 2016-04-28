@@ -16,22 +16,24 @@
 			<label class="control-label">Key Word</label>
 			<div class="panel panel-primary panel-heading">{{ key }}</div> 
 		
-				<label class="control-label">Encrypted Message</label>
-				<textarea readonly class="form-control panel panel-primary panel-body" rows="4" name="msg" id="msg">{{ org_msg }}</textarea>
-				
-				<label class="control-label">Decrypted Message</label>
-				<textarea readonly class="form-control panel panel-success panel-body" rows="4">{{ dec_msg }}</textarea> 
+			<label class="control-label">Encrypted Message</label>
+			<textarea readonly class="form-control panel panel-primary panel-body" rows="4" name="msg" id="msg">{{ org_msg }}</textarea>
 			
-				<a href="/" class="btn btn-primary btn-sm" align="right" value="Go Back">Go Back</a>
-			
-				<div class="logo">
-					<a href="http://www.omrimasasa.com" target="_blank"><img src="{{ url_for('static',filename='/images/om.png') }}" alt="Omri Masasa"></a>
-				</div>
-		</div>
-		<div class="copyright">
-		Copyright &copy Made by Omri Masasa, All rights reserved.
+			<label class="control-label">Decrypted Message</label>
+			<textarea readonly class="form-control panel panel-success panel-body" rows="4">{{ dec_msg }}</textarea> 
+		
+			<a href="/" class="btn btn-primary btn-sm" align="right" value="Go Back">Go Back</a>
+		
+			<div class="logo">
+				<a href="http://www.omrimasasa.com" target="_blank"><img src="{{ url_for('static',filename='/images/om.png') }}" alt="Omri Masasa"></a>
+			</div>
 		</div>
 	</div>
+		
+	<div class="copyright">
+	Copyright &copy Made by Omri Masasa, All rights reserved.
+	</div>
+	
 </div>
 
 </body>

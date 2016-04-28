@@ -16,8 +16,8 @@
 
 			<div class="row form-group">
 				<div class="col-sm-12">
-					<div class="control-label input-sm"><label for="select">Action</label></div>
-					<select class="form-control" onchange="changeSubmitButtonText()" name="act">
+					<label for="select">Action</label>
+					<select class="form-control input-sm" onchange="changeSubmitButtonText()" name="act">
 						<option value="0">Encrypt Message</option>
 						<option value="1">Decrypt Message</option>
 					</select>
@@ -26,7 +26,7 @@
 
 			<div class="row form-group">
 				<div class="col-sm-12">
-				<div class="control-label"><label for="select">Key Word</label></div>
+				<label for="select">Key Word</label>
 					<input type="text" class="form-control input-sm" name="key" id="key" placeholder="Enter your Key Word / Phrase">
 				<p id="key_err" class="text-danger note"></p>
 				</div>
@@ -34,7 +34,7 @@
 
 			<div class="row form-group">
 				<div class="col-sm-12">
-					<div class="control-label"><label for="select">Your Message</label></div>
+					<label for="select">Your Message</label>
 					<textarea class="form-control" rows="4" name="msg" id="msg" placeholder="Enter your Message"></textarea>
 					<p id="msg_err" class="text-danger note"></p>
 					<div class="help-block note" style="margin-top:0px;">Please make sure you remember the key word / phrase.</div>

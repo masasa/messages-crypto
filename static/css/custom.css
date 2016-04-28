@@ -30,6 +30,10 @@ h1{
 	font-size:13px;
 }
 
+.control-label {
+	font-size:16px;
+}
+
 /* used for mobile and tablets */
 @media only screen and (max-width : 749px) {
 	/* continuing the color of the container all the way down */

@@ -9,43 +9,30 @@
 </head>
 <body>
 
-	<div class="container well bs-component">
+<div class="container well bs-component">
 	<div class="form-horizontal">
 		<h1 align="center">Encryption & Decryption Platform</h1>
 		<div class="row form-group">
-			<div class="col-sm-12">
-				<label class="control-label">Key Word</label>
-				<div class="panel panel-primary panel-heading">{{ key }}</div> 
-			</div>
-		</div>	
-
-		<div class="row form-group">
-			<div class="col-sm-12">
+			<label class="control-label">Key Word</label>
+			<div class="panel panel-primary panel-heading">{{ key }}</div> 
+		
 				<label class="control-label">Encrypted Message</label>
 				<textarea readonly class="form-control panel panel-primary panel-body" rows="4" name="msg" id="msg">{{ org_msg }}</textarea>
-			</div>
-		</div>
-
-		<div class="row form-group">
-			<div class="col-sm-12">
+				
 				<label class="control-label">Decrypted Message</label>
 				<textarea readonly class="form-control panel panel-success panel-body" rows="4">{{ dec_msg }}</textarea> 
-			</div>
-		</div>
-
-		<div class="row form-group">
-			<div class="col-sm-offset-2 col-sm-8">
+			
 				<a href="/" class="btn btn-primary btn-sm" align="right" value="Go Back">Go Back</a>
-			</div>
-			<div class="col-sm-2" align="right">
-				<a href="http://www.omrimasasa.com" target="_blank"><img src="{{ url_for('static',filename='/images/om.png') }}" alt="Omri Masasa"></a>
-			</div>
-		</div>
+			
+				<div class="logo">
+					<a href="http://www.omrimasasa.com" target="_blank"><img src="{{ url_for('static',filename='/images/om.png') }}" alt="Omri Masasa"></a>
+				</div>
 		</div>
 		<div class="copyright">
 		Copyright &copy Made by Omri Masasa, All rights reserved.
 		</div>
 	</div>
+</div>
 
 </body>
 </html>

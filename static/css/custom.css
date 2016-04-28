@@ -3,7 +3,6 @@
 	box-sizing: border-box;
 }
 
-
 h1{
 	font-size: 30px;
 	margin-bottom: 10px;
@@ -11,8 +10,15 @@ h1{
 
 .copyright {
 	align-self: left;
-	padding: 20px 0px 0px 0px;
 	font-size:14px;
+}
+
+.logo {
+	float: right;
+}
+
+.container{
+	padding: 10px 20px;
 }
 
 /* some padding to the window */

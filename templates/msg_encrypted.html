@@ -23,9 +23,8 @@
 			<textarea readonly class="form-control panel panel-success panel-body" rows="4">{{ enc_msg }}</textarea>  
 		
 			<a href="/" class="btn btn-primary btn-sm" align="right" value="Go Back">Go Back</a>
-			
 			<div class="logo">
-				<a href="http://www.omrimasasa.com" target="_blank"><img src="{ url_for('static',filename='/images/om.png') }}" alt="Omri Masasa"></a>
+				<a href="http://www.omrimasasa.com" target="_blank"><img src="{{ url_for('static',filename='/images/om.png') }}" alt="Omri Masasa"></a>
 			</div>
 		</div>
 	</div>

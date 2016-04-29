@@ -36,6 +36,11 @@ h1{
 	font-size: 13px;
 }
 
+.key {
+	overflow: auto;
+	vertical-align: center;
+}
+
 select{
 	margin-bottom: 6px;
 }

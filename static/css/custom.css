@@ -21,17 +21,28 @@ h1{
 	padding: 10px 20px;
 }
 
-/* some padding to the window */
-.form-horizontal {
-	padding: 4px 12px;
-}
-
 .note {
 	font-size:13px;
 }
 
+.page-not-found {
+	font-size: 64px;
+	text-align: center;
+	margin: 20px;
+}
+
 .control-label {
-	font-size:16px;
+	margin-left: 3px;
+	font-size: 13px;
+}
+
+select{
+	margin-bottom: 6px;
+}
+
+/* some padding to the window */
+.form-horizontal {
+	padding: 4px 12px;
 }
 
 /* used for mobile and tablets */
